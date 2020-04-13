@@ -79,14 +79,14 @@ export default {
         },
         {
           icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
+          title: 'Rooms',
+          to: '/rooms'
         }
       ],
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'Vuetify.js'
+      title: 'Sen - for special encounters with people -'
     }
   }
 }
