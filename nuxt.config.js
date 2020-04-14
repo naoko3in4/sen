@@ -1,5 +1,12 @@
 import colors from 'vuetify/es5/util/colors'
 
+require('dotenv').config()
+const { APIKEY, AUTHDOMAIN, DATABASEURL, PROJECTID, STORAGEBUCKET, MESSAGINGSENDERID, APPID } = process.env
+
+if (process.browser) {
+  require('@editorjs/editorjs')
+}
+
 export default {
   mode: 'spa',
   /*
@@ -30,7 +37,9 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: [
+    '~/plugins/firebase',
+  ],
   /*
    ** Nuxt.js dev-modules
    */
@@ -93,5 +102,15 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) {}
-  }
+  },
+  env: {
+    APIKEY,
+    AUTHDOMAIN,
+    DATABASEURL,
+    PROJECTID,
+    STORAGEBUCKET,
+    MESSAGINGSENDERID,
+    APPID,
+    baseUrl: process.env.BASE_URL
+  },
 }

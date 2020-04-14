@@ -1,6 +1,7 @@
-// import { db } from '~/plugins/firebase'
+import { firestoreAction } from 'vuexfire'
+import { db } from '~/plugins/firebase'
 
-// const roomsCollection = db.collection('rooms')
+const roomsCollection = db.collection('rooms')
 
 export const state = () => ({
   // サンプルポストデータ
@@ -57,24 +58,27 @@ export const state = () => ({
       posted_at: '2019-04-10 00:00:00'
     }
   ],
-  // vuex でバインドするデータ一覧と投稿時に保持しておくデータ
+  // vuexfire でバインドするデータ一覧と投稿時に保持しておくデータ
   rooms: [],
   roomData: {
     id: null
   }
 })
 
-// export const mutations = {
-//   ADD_POST_ID(state, id) {
-//     state.roomData.id = id
-//   },
-// }
+export const mutations = {
+  ADD_POST_ID(state, id) {
+    state.roomData.id = id
+  }
+}
 
-// export const actions = {
-//   initRooms: firestoreAction( async ({ bindFirestoreRef }) => {
-//     await bindFirestoreRef('rooms', postsCollection.orderBy('posted_at', 'desc'))
-//   }),
-//   addRoomId({ commit }, id) {
-//     commit('ADD_ROOM_ID', id)
-//   }
-// }
+export const actions = {
+  initRooms: firestoreAction(async ({ bindFirestoreRef }) => {
+    await bindFirestoreRef(
+      'rooms',
+      roomsCollection.orderBy('posted_at', 'desc')
+    )
+  }),
+  addRoomId({ commit }, id) {
+    commit('ADD_ROOM_ID', id)
+  }
+}
