@@ -73,16 +73,16 @@ export default {
     }
   },
   babel: {
-    presets: [
-      'es2015',
-      'stage-0'
-    ],
+    presets: ['es2015', 'stage-0'],
     plugins: [
-      ['transform-runtime', {
-        'polyfill': true,
-        'regenerator': true,
-      }]
-    ],
+      [
+        'transform-runtime',
+        {
+          polyfill: true,
+          regenerator: true
+        }
+      ]
+    ]
   },
   vendor: ['axios', 'babel-polyfill'],
   /*
