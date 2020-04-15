@@ -1,7 +1,15 @@
 import colors from 'vuetify/es5/util/colors'
 
 require('dotenv').config()
-const { APIKEY, AUTHDOMAIN, DATABASEURL, PROJECTID, STORAGEBUCKET, MESSAGINGSENDERID, APPID } = process.env
+const {
+  APIKEY,
+  AUTHDOMAIN,
+  DATABASEURL,
+  PROJECTID,
+  STORAGEBUCKET,
+  MESSAGINGSENDERID,
+  APPID
+} = process.env
 
 if (process.browser) {
   require('@editorjs/editorjs')
@@ -37,9 +45,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [
-    '~/plugins/firebase',
-  ],
+  plugins: ['~/plugins/firebase'],
   /*
    ** Nuxt.js dev-modules
    */
@@ -70,7 +76,7 @@ export default {
       dark: true,
       themes: {
         dark: {
-          primary: colors.blue.darken2,
+          primary: colors.cyan.darken2,
           accent: colors.grey.darken3,
           secondary: colors.amber.darken3,
           info: colors.teal.lighten1,
@@ -112,5 +118,5 @@ export default {
     MESSAGINGSENDERID,
     APPID,
     baseUrl: process.env.BASE_URL
-  },
+  }
 }
