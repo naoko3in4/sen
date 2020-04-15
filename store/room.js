@@ -80,6 +80,13 @@ export const state = () => ({
     room_image: '',
     posted_at: '2019-04-10 00:00:00'
   },
+  member: {
+    id: 1,
+    name: 'Kaori',
+    episode: '息子が大学生・元保育園勤務',
+    icon_url: 'https://image.flaticon.com/icons/svg/1808/1808676.svg',
+    posted_at: '2019-06-09 00:00:00'
+  },
 
   // vuexfire でバインドするデータ一覧と投稿時に保持しておくデータ
   rooms: [],

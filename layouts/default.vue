@@ -66,6 +66,11 @@ export default {
           icon: 'mdi-chart-bubble',
           title: 'Rooms',
           to: '/rooms'
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'Create Room',
+          to: '/rooms/new-room'
         }
       ],
       miniVariant: false,
