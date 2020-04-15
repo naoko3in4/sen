@@ -58,6 +58,29 @@ export const state = () => ({
       posted_at: '2019-04-10 00:00:00'
     }
   ],
+  room: {
+    id: 3,
+    members: [
+      {
+        id: 1,
+        name: 'Tajima',
+        episode: '九州出身',
+        icon_url: 'https://image.flaticon.com/icons/svg/1808/1808676.svg',
+        posted_at: '2020-04-10 00:00:00'
+      },
+      {
+        id: 2,
+        name: 'Goto',
+        episode: 'トイプードル飼ってる',
+        icon_url: 'https://image.flaticon.com/icons/svg/1808/1808676.svg',
+        posted_at: '2019-04-10 00:00:00'
+      }
+    ],
+    room_name: 'J株式会社',
+    room_image: '',
+    posted_at: '2019-04-10 00:00:00'
+  },
+
   // vuexfire でバインドするデータ一覧と投稿時に保持しておくデータ
   rooms: [],
   roomData: {
