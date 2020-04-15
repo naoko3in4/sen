@@ -6,7 +6,7 @@
         :key="key"
         @click="goToRoomPage(room.id)"
       >
-        <v-card color="primary">
+        <v-card color="primary" class="category">
           <v-card-title class="headline">
             {{ room.room_name }}
           </v-card-title>
@@ -39,3 +39,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.category {
+  margin-bottom: 20px;
+}
+</style>

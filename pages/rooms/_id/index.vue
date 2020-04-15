@@ -35,7 +35,7 @@ export default {
   computed: {
     ...mapState('room', ['feedRooms']),
     getrooms() {
-      console.log(this.feedRooms)
+      console.log(`各ページfeedRooms${this.feedRooms}`)
       return true
     }
   },
