@@ -1,7 +1,6 @@
-import { firestoreAction } from 'vuexfire'
-import { db } from '~/plugins/firebase'
+// import { db } from '~/plugins/firebase'
 
-const roomsCollection = db.collection('rooms')
+// const roomsCollection = db.collection('rooms')
 
 export const state = () => ({
   // サンプルポストデータ
@@ -118,12 +117,12 @@ export const mutations = {
 }
 
 export const actions = {
-  initRooms: firestoreAction(async ({ bindFirestoreRef }) => {
-    await bindFirestoreRef(
-      'rooms',
-      roomsCollection.orderBy('posted_at', 'desc')
-    )
-  }),
+  // initRooms: firestoreAction(async ({ bindFirestoreRef }) => {
+  //   await bindFirestoreRef(
+  //     'rooms',
+  //     roomsCollection.orderBy('posted_at', 'desc')
+  //   )
+  // }),
   addRoomId({ commit }, id) {
     commit('ADD_ROOM_ID', id)
   }
