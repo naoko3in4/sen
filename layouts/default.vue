@@ -29,9 +29,9 @@
       <v-btn icon @click.stop="miniVariant = !miniVariant">
         <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
       </v-btn>
-      <v-btn icon @click.stop="clipped = !clipped">
+      <!-- <v-btn icon @click.stop="clipped = !clipped">
         <v-icon>mdi-application</v-icon>
-      </v-btn>
+      </v-btn> -->
       <v-btn icon @click.stop="fixed = !fixed">
         <v-icon>mdi-minus</v-icon>
       </v-btn>
@@ -76,7 +76,7 @@ export default {
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'Sen - for special encounters with people -'
+      title: ' Sen - for special encounters with people -'
     }
   }
 }

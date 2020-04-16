@@ -58,35 +58,51 @@ export const state = () => ({
       posted_at: '2019-04-10 00:00:00'
     }
   ],
-  room: {
-    id: 3,
-    members: [
-      {
-        id: 1,
-        name: 'Tajima',
-        episode: '九州出身',
-        icon_url: 'https://image.flaticon.com/icons/svg/1808/1808676.svg',
-        posted_at: '2020-04-10 00:00:00'
-      },
-      {
-        id: 2,
-        name: 'Goto',
-        episode: 'トイプードル飼ってる',
-        icon_url: 'https://image.flaticon.com/icons/svg/1808/1808676.svg',
-        posted_at: '2019-04-10 00:00:00'
-      }
-    ],
-    room_name: 'J株式会社',
-    room_image: '',
-    posted_at: '2019-04-10 00:00:00'
-  },
-  member: {
-    id: 1,
-    name: 'Kaori',
-    episode: '息子が大学生・元保育園勤務',
-    icon_url: 'https://image.flaticon.com/icons/svg/1808/1808676.svg',
-    posted_at: '2019-06-09 00:00:00'
-  },
+  // room: {
+  //   id: 3,
+  //   members: [
+  //     {
+  //       id: 1,
+  //       name: 'Tajima',
+  //       episode: '九州出身',
+  //       icon_url: 'https://image.flaticon.com/icons/svg/1808/1808676.svg',
+  //       posted_at: '2020-04-10 00:00:00'
+  //     },
+  //     {
+  //       id: 2,
+  //       name: 'Goto',
+  //       episode: 'トイプードル飼ってる',
+  //       icon_url: 'https://image.flaticon.com/icons/svg/1808/1808676.svg',
+  //       posted_at: '2019-04-10 00:00:00'
+  //     }
+  //   ],
+  //   room_name: 'J株式会社',
+  //   room_image: '',
+  //   posted_at: '2019-04-10 00:00:00'
+  // },
+  members: [
+    {
+      id: 1,
+      name: 'Kaori',
+      episode: '息子が大学生・元保育園勤務',
+      icon_url: 'https://image.flaticon.com/icons/svg/1808/1808676.svg',
+      posted_at: '2019-06-09 00:00:00'
+    },
+    {
+      id: 2,
+      name: 'Emi',
+      episode: '浅草在住・お酒が好き',
+      icon_url: 'https://image.flaticon.com/icons/svg/1808/1808676.svg',
+      posted_at: '2019-06-09 00:00:00'
+    },
+    {
+      id: 3,
+      name: 'Yuki',
+      episode: '娘が3人・長女がアメリカ留学',
+      icon_url: 'https://image.flaticon.com/icons/svg/1808/1808676.svg',
+      posted_at: '2019-06-09 00:00:00'
+    }
+  ],
 
   // vuexfire でバインドするデータ一覧と投稿時に保持しておくデータ
   rooms: [],
