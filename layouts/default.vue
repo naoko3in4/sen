@@ -160,10 +160,9 @@ export default {
   },
   methods: {
     async postMember() {
-      const res = await axios.post('https://sen.microcms.io/api/v1/sen', {
+      await axios.post('https://sen.microcms.io/api/v1/sen', {
         ...this.formData
       })
-      console.log(res)
       this.dialogOpen = false
     },
     selectCategory(value) {

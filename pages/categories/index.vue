@@ -1,23 +1,21 @@
 <template>
   <v-layout column justify-center align-center>
     <v-flex xs12 sm8 md6>
-      <div
-        v-for="(category, key) in feedCategories"
-        :key="key"
-        @click="goToCategoryPage(category.id)"
-      >
-        <v-card color="primary" class="category">
-          <v-card-title class="headline">
-            {{ category.category_name }}
-          </v-card-title>
-        </v-card>
-      </div>
+      <template v-for="(category, key) in CATEGORY_NAMES">
+        <div :key="key" @click="goToCategoryPage(key)">
+          <v-card color="primary" class="category">
+            <v-card-title class="headline">
+              {{ category }}
+            </v-card-title>
+          </v-card>
+        </div>
+      </template>
     </v-flex>
   </v-layout>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import CATEGORY_NAMES from '~/const/category_name'
 
 export default {
   name: 'Category',
@@ -27,12 +25,12 @@ export default {
     }
   },
   computed: {
-    ...mapState('category', ['feedCategories'])
+    CATEGORY_NAMES: () => CATEGORY_NAMES
   },
   methods: {
-    goToCategoryPage(categoryId) {
+    goToCategoryPage(key) {
       this.$router.push({
-        path: `categories/${categoryId}`
+        path: `categories/${key}`
       })
     }
   }

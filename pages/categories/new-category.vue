@@ -36,19 +36,12 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
-
 export default {
   data: () => ({
     categoryData: {
       title: ''
     }
   }),
-  computed: {
-    ...mapState({
-      categoryId: (store) => store.category.categoryData.id
-    })
-  },
   methods: {
     inputImage() {
       const imageFile = this.$refs.file.files[0]
