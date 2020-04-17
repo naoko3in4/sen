@@ -33,15 +33,11 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from '~/plugins/axios'
 
 export default {
   async asyncData() {
-    const res = await axios.get('https://sen.microcms.io/api/v1/sen', {
-      headers: {
-        'X-API-KEY': 'ddc2c6b9-fac7-4ce5-85a1-3f44b75cc2b8'
-      }
-    })
+    const res = await axios.get('https://sen.microcms.io/api/v1/sen')
     console.log('jfjfjfj')
     console.log(res)
   }
