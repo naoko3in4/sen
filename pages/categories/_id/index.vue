@@ -1,98 +1,41 @@
 <template>
   <v-layout column justify-center align-center>
     <v-flex xs12 sm8 md6>
-      <div v-for="(member, key) in members" :key="key">
-        <v-card class="member-box">
+      <template v-for="(member, key) in members">
+        <v-card :key="key" class="member-box">
           <v-layout justify-center>
             <v-card-title class="headline text-center">
               {{ member.name }}
             </v-card-title>
           </v-layout>
-          <v-layout justify-center>
-            <v-avatar class="text-center">
-              <img :src="member.icon_url" alt="アイコン" class="member-icon" />
-            </v-avatar>
-          </v-layout>
           <v-card-text class="text-center">
             <p>メモ：{{ member.episode }}</p>
-            <p>登録：{{ member.posted_at.substring(0, 10) }}</p>
+            <p>登録：{{ member.createdAt.substring(0, 10) }}</p>
           </v-card-text>
         </v-card>
-      </div>
-      <!-- modal -->
-      <v-row justify="center">
-        <v-dialog v-model="dialog" persistent max-width="290">
-          <template v-slot:activator="{ on }">
-            <v-row justify="space-around">
-              <v-btn color="primary" dark class="modal-trigger" v-on="on"
-                >+Add</v-btn
-              >
-            </v-row>
-          </template>
-          <v-card>
-            <v-card-title class="headline">メンバーを追加する</v-card-title>
-            <v-card-text>
-              <label for="名前">①</label>
-              <p><input type="text" placeholder="名前を入力" /></p>
-              <label for="メモ">②</label>
-              <p><input type="text" placeholder="メモを入力" /></p>
-              <label for="ref-image" class="label-ref-image">
-                ③ + 画像設定する
-              </label>
-              <p>
-                <input
-                  id="ref-image"
-                  ref="file"
-                  type="file"
-                  multiple
-                  accept="image/jpeg, image/png"
-                  @change="inputImage()"
-                />
-              </p>
-            </v-card-text>
-            <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn color="primary" text @click="dialog = false">やめる</v-btn>
-              <v-btn color="primary" text @click="dialog = false">登録</v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-dialog> </v-row
-      ><!-- modal -->
+      </template>
     </v-flex>
   </v-layout>
 </template>
 
 <script>
-import { mapState } from 'vuex'
-// import { db, storage } from '~/plugins/firebase'
-
-// const membersCollection = db.collection('members')
-// const thumbnailStorageRef = storage.ref('thumbnails')
+import axios from '~/plugins/axios'
 
 export default {
-  name: 'Room',
-  async asyncData({ query }) {},
-  data: () => ({
-    dialog: false,
-    rawImageFile: null
-  }),
-  computed: {
-    ...mapState('category', ['members']),
-    getCategories() {
-      return this.members
+  name: 'Category',
+  async asyncData() {
+    const res = await axios.get('https://sen.microcms.io/api/v1/sen', {
+      params: {
+        filters: 'category[equals]職場'
+      }
+    })
+    return {
+      members: res.data.contents
     }
   },
-  // methods: {
-  //   ...mapActions('room', ['initRooms'])
-
-  // }
   methods: {
     inputImage() {},
-    async uploadThumbnailImage(data) {}
-  },
-  async updatePost() {},
-  handleClick() {
-    // this.$router.push('/my-posts')
+    handleClick() {}
   }
 }
 </script>

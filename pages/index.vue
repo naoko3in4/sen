@@ -38,8 +38,9 @@ import axios from '~/plugins/axios'
 export default {
   async asyncData() {
     const res = await axios.get('https://sen.microcms.io/api/v1/sen')
-    console.log('jfjfjfj')
-    console.log(res)
+    return {
+      members: res
+    }
   }
 }
 </script>
