@@ -64,8 +64,8 @@ export default {
         },
         {
           icon: 'mdi-chart-bubble',
-          title: 'Rooms',
-          to: '/rooms'
+          title: 'Categories',
+          to: '/categories'
         }
       ],
       miniVariant: false,

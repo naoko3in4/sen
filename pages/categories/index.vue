@@ -2,13 +2,13 @@
   <v-layout column justify-center align-center>
     <v-flex xs12 sm8 md6>
       <div
-        v-for="(room, key) in feedRooms"
+        v-for="(category, key) in feedCategories"
         :key="key"
-        @click="goToRoomPage(room.id)"
+        @click="goToCategoryPage(category.id)"
       >
         <v-card color="primary" class="category">
           <v-card-title class="headline">
-            {{ room.room_name }}
+            {{ category.category_name }}
           </v-card-title>
         </v-card>
       </div>
@@ -23,10 +23,10 @@
             </v-row>
           </template>
           <v-card>
-            <v-card-title class="headline">ルームを追加する</v-card-title>
+            <v-card-title class="headline">カテゴリーを追加する</v-card-title>
             <v-card-text>
               <label for="名前">項目</label>
-              <p><input type="text" placeholder="ルーム名を入力" /></p>
+              <p><input type="text" placeholder="カテゴリー名を入力" /></p>
             </v-card-text>
             <v-card-actions>
               <v-spacer></v-spacer>
@@ -44,23 +44,23 @@
 import { mapState, mapActions } from 'vuex'
 
 export default {
-  name: 'Room',
+  name: 'Category',
   data() {
     return {
       dialog: false
     }
   },
   computed: {
-    ...mapState('room', ['feedRooms']),
-    getrooms() {
-      console.log(this.feedRooms)
+    ...mapState('category', ['feedCategories']),
+    getCategories() {
+      console.log(this.feedCategories)
       return true
     }
   },
   methods: {
-    ...mapActions('room', ['initRooms']),
-    goToRoomPage(id) {
-      this.$router.push({ path: `rooms/${id}` })
+    ...mapActions('category', ['initCategories']),
+    goToCategoryPage(id) {
+      this.$router.push({ path: `categories/${id}` })
     }
   }
 }

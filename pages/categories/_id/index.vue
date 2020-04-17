@@ -64,33 +64,21 @@
 
 <script>
 import { mapState } from 'vuex'
-import { db, storage } from '~/plugins/firebase'
+// import { db, storage } from '~/plugins/firebase'
 
-const membersCollection = db.collection('members')
-const thumbnailStorageRef = storage.ref('thumbnails')
+// const membersCollection = db.collection('members')
+// const thumbnailStorageRef = storage.ref('thumbnails')
 
 export default {
   name: 'Room',
-  async asyncData({ query }) {
-    return await membersCollection
-      .doc(query.id)
-      .get()
-      .then((doc) => {
-        const data = doc.data()
-        const articleData = JSON.parse(data.article)
-        data.article = articleData
-        return {
-          member: data
-        }
-      })
-  },
+  async asyncData({ query }) {},
   data: () => ({
     dialog: false,
     rawImageFile: null
   }),
   computed: {
-    ...mapState('room', ['members']),
-    getrooms() {
+    ...mapState('category', ['members']),
+    getCategories() {
       return this.members
     }
   },
@@ -99,50 +87,10 @@ export default {
 
   // }
   methods: {
-    inputImage() {
-      const imageFile = this.$refs.file.files[0]
-      const imageUrl = window.URL.createObjectURL(imageFile)
-      // アップロード用のファイルデータ
-      this.rawImageFile = imageFile
-      // 投稿ページ用のサムネイル画像URL
-      this.post.thumbnail_photo_url = imageUrl
-    },
-    async uploadThumbnailImage(data) {
-      const thumbnailRef = thumbnailStorageRef.child(this.post.id)
-      await thumbnailRef.put(data).then((snapshot) => {
-        console.log(`upload success!!: ${snapshot.state}`)
-      })
-      await thumbnailRef.getDownloadURL().then((url) => {
-        this.post.thumbnail_photo_url = url
-      })
-    }
-    // async getArticleData() {
-    //   await this.editor.save().then(data => {
-    //     this.post.article = JSON.stringify(data.blocks)
-    //   })
+    inputImage() {},
+    async uploadThumbnailImage(data) {}
   },
-  async updatePost() {
-    // 1, サムネイル画像の変更があったら、ファイルをアップロードする
-    if (this.rawImageFile) {
-      await this.uploadThumbnailImage(this.rawImageFile)
-    }
-
-    // 2, Editor.js のデータを取得
-    await this.getArticleData()
-
-    // 3, ポストデータを Firebase にアップする
-    db.collection('posts')
-      .doc(this.post.id)
-      .update(this.post)
-      .then(() => {
-        console.log(`update success!! post ID: ${this.post.id}`)
-        // 今後マイポスト管理ページに遷移する
-        // this.$router.push('/my-posts')
-      })
-      .catch((e) => {
-        console.error(e)
-      })
-  },
+  async updatePost() {},
   handleClick() {
     // this.$router.push('/my-posts')
   }
