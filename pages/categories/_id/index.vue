@@ -23,10 +23,10 @@ import axios from '~/plugins/axios'
 
 export default {
   name: 'Category',
-  async asyncData() {
+  async asyncData({ params }) {
     const res = await axios.get('https://sen.microcms.io/api/v1/sen', {
       params: {
-        filters: 'category[equals]職場'
+        filters: `category[equals]${params.id}`
       }
     })
     return {

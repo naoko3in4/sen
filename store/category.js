@@ -2,7 +2,7 @@ export const state = () => ({
   // サンプルポストデータ
   feedCategories: [
     {
-      id: 1,
+      id: '職場',
       members: [
         {
           id: 1,
@@ -31,7 +31,7 @@ export const state = () => ({
       posted_at: '2019-06-09 00:00:00'
     },
     {
-      id: 2,
+      id: '学校',
       members: [
         {
           id: 1,

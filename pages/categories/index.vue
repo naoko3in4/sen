@@ -59,8 +59,10 @@ export default {
   },
   methods: {
     ...mapActions('category', ['initCategories']),
-    goToCategoryPage(id) {
-      this.$router.push({ path: `categories/${id}` })
+    goToCategoryPage(categoryId) {
+      this.$router.push({
+        path: `categories/${categoryId}`
+      })
     }
   }
 }
