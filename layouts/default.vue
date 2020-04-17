@@ -84,12 +84,18 @@
                   placeholder="エピソードを入力"
                 />
               </label>
-              <label for="名前">
-                <input
-                  v-model="formData.category"
-                  type="text"
-                  placeholder="カテゴリを入力"
-                />
+              <label for="カテゴリ">
+                <v-container fluid>
+                  <v-row align="center">
+                    <v-col class="d-flex" cols="12" sm="6">
+                      <v-select
+                        :value="formData.categoey"
+                        :items="selectItems"
+                        @input="selectCategory"
+                      />
+                    </v-col>
+                  </v-row>
+                </v-container>
               </label>
             </v-card-text>
             <v-card-actions>
@@ -112,6 +118,7 @@
 
 <script>
 import axios from '../plugins/axios'
+import CATEGORY_NAMES from '~/const/category_name'
 
 export default {
   name: 'Default',
@@ -146,6 +153,11 @@ export default {
       rawImageFile: null
     }
   },
+  computed: {
+    selectItems() {
+      return Object.values(CATEGORY_NAMES)
+    }
+  },
   methods: {
     async postMember() {
       const res = await axios.post('https://sen.microcms.io/api/v1/sen', {
@@ -153,6 +165,11 @@ export default {
       })
       console.log(res)
       this.dialogOpen = false
+    },
+    selectCategory(value) {
+      this.formData.category = Object.entries(CATEGORY_NAMES).find(
+        ([key, name]) => name === value
+      )[0]
     }
   }
 }

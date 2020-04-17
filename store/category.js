@@ -2,7 +2,7 @@ export const state = () => ({
   // サンプルポストデータ
   feedCategories: [
     {
-      id: '職場',
+      id: 'work',
       members: [
         {
           id: 1,
