@@ -1,11 +1,16 @@
 import colors from 'vuetify/es5/util/colors'
 require('dotenv').config()
+const { MICROCMS_GET_APIKEY, MICROCMS_POST_APIKEY} = process.env
 
 export default {
   mode: 'spa',
   /*
    ** Headers of the page
    */
+  env: {
+    MICROCMS_GET_APIKEY,
+    MICROCMS_POST_APIKEY,
+  },
   head: {
     titleTemplate: 'SEN',
     title: 'SEN',
