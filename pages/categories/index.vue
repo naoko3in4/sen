@@ -42,5 +42,8 @@ export default {
 <style lang="scss" scoped>
 .category {
   margin-bottom: 20px;
+  &:hover {
+    cursor: pointer;
+  }
 }
 </style>
