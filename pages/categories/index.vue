@@ -4,9 +4,11 @@
       <template v-for="(category, key) in CATEGORY_NAMES">
         <div :key="key" @click="goToCategoryPage(key)">
           <v-card color="primary" class="category">
-            <v-card-title class="headline">
-              {{ category }}
-            </v-card-title>
+            <v-layout justify-center>
+              <v-card-title class="headline">
+                {{ category }}
+              </v-card-title>
+            </v-layout>
           </v-card>
         </div>
       </template>

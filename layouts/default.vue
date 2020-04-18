@@ -142,7 +142,7 @@ export default {
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: ' Sen - for special encounters with people -',
+      title: ' SEN - for special encounters with people -',
       formData: {
         name: null,
         furigana: null,
