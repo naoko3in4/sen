@@ -1,19 +1,6 @@
 import colors from 'vuetify/es5/util/colors'
-
 require('dotenv').config()
-const {
-  APIKEY,
-  AUTHDOMAIN,
-  DATABASEURL,
-  PROJECTID,
-  STORAGEBUCKET,
-  MESSAGINGSENDERID,
-  APPID
-} = process.env
-
-if (process.browser) {
-  require('@editorjs/editorjs')
-}
+const {} = process.env
 
 export default {
   mode: 'spa',
@@ -45,14 +32,15 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~/plugins/firebase'],
+  plugins: [],
   /*
    ** Nuxt.js dev-modules
    */
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
-    '@nuxtjs/vuetify'
+    '@nuxtjs/vuetify',
+    '@nuxtjs/dotenv'
   ],
   /*
    ** Nuxt.js modules
@@ -109,14 +97,5 @@ export default {
      */
     extend(config, ctx) {}
   },
-  env: {
-    APIKEY,
-    AUTHDOMAIN,
-    DATABASEURL,
-    PROJECTID,
-    STORAGEBUCKET,
-    MESSAGINGSENDERID,
-    APPID,
-    baseUrl: process.env.BASE_URL
-  }
+  env: {}
 }

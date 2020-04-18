@@ -13,10 +13,8 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
-    "dotenv": "^8.2.0",
-    "firebase": "^7.14.0",
-    "nuxt": "^2.0.0",
-    "vuexfire": "^3.2.2"
+    "@nuxtjs/dotenv": "^1.4.1",
+    "nuxt": "^2.0.0"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^2.0.0",
