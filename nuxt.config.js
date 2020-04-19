@@ -1,12 +1,16 @@
 import colors from 'vuetify/es5/util/colors'
 require('dotenv').config()
-const { MICROCMS_GET_APIKEY, MICROCMS_POST_APIKEY } = process.env
+const { MICROCMS_GET_APIKEY, MICROCMS_POST_APIKEY} = process.env
 
 export default {
   mode: 'spa',
   /*
    ** Headers of the page
    */
+  env: {
+    MICROCMS_GET_APIKEY,
+    MICROCMS_POST_APIKEY,
+  },
   head: {
     titleTemplate: 'SEN',
     title: 'SEN',
@@ -53,9 +57,7 @@ export default {
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {
-    // BASE_URL: process.env.BASE_URL
-  },
+  axios: {},
   /*
    ** vuetify module configuration
    ** https://github.com/nuxt-community/vuetify-module
@@ -97,23 +99,7 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {
-      if (ctx.isDev && ctx.isClient) {
-        // config.node = {
-        //   fs: 'empty'
-        // }
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/
-        })
-      }
-    }
+    extend(config, ctx) {}
   },
-  env: {
-    MICROCMS_GET_APIKEY,
-    MICROCMS_POST_APIKEY,
-    BASE_URL: process.env.BASE_URL || 'https://sen.netlify.app/'
-  }
+  env: {}
 }
